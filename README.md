@@ -1,3 +1,3 @@
 # react-counter-thunk
 
-Implementacäo Redux Thunk para processamento assíncrono
+Aplicação para estudo do Redux Thunk para processamento assíncrono
