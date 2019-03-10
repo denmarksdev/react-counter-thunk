@@ -1,19 +1,17 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { loadData } from '../actions/actionsIP'
+import { loadUA } from '../actions/actionsUA'
 import { ProgressBar, Alert } from 'react-bootstrap'
 
-import './Info.css'
-
-class Info extends React.Component {
+class UserAgent extends React.Component {
 
     componentDidMount() {
-        this.props.loadData()
+        this.props.loadUA()
     }
 
     render() {
-        const { isFetching, data, error } = this.props
+        const { isFetching, ua, error } = this.props
 
         if (error) {
             return (
@@ -29,10 +27,12 @@ class Info extends React.Component {
         return (
             <Card className='info-container' >
                 <Card.Header>
-                    <strong>Seu ip</strong>
+                    <strong>
+                        User Agent
+                    </strong>
                 </Card.Header>
                 <Card.Body>
-                    <p>{JSON.stringify(data)}</p>
+                    <p>{JSON.stringify(ua)}</p>
                 </Card.Body>
             </Card>
         )
@@ -41,16 +41,16 @@ class Info extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        isFetching: state.ip.isFetiching,
-        data: state.ip.data,
-        error: state.ip.error
+        isFetching: state.ua.isFetiching,
+        ua: state.ua.data,
+        error: state.ua.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadData: () => dispatch(loadData())
+        loadUA: () => dispatch(loadUA())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Info)
+export default connect(mapStateToProps, mapDispatchToProps)(UserAgent)

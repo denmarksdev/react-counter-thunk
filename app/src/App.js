@@ -7,6 +7,7 @@ import  thunk from 'redux-thunk'
 
 import reducer from './reducers/reducer'
 import Info from './components/Info';
+import UserAgent from './components/UserAgent';
 
 const store = createStore(
   reducer,
@@ -18,7 +19,8 @@ class App extends Component {
     return (
       <Provider store={store} >
         <Container>
-          <Info></Info>
+          <Info />
+          <UserAgent />
         </Container>
       </Provider>
     );
