@@ -24,7 +24,7 @@ export const loadUAErro = error => {
 }
 
 export const TYPE_LOAD_UA = 'LoadUA';
-export const loadUA = () => {
+export const loadUA = (axios) => {
     return dispatch => {
         dispatch(loadUARequest())
         axios
@@ -32,4 +32,8 @@ export const loadUA = () => {
             .then(({ data }) => dispatch(loadUASuccess(data)))
             .catch(error => dispatch(loadUAErro(error)))
     }
+}
+
+export default {
+    loadUA: loadUA.bind(null, axios)
 }

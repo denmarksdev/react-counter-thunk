@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { loadUA } from '../actions/actionsUA'
+import actionsUA from '../actions/actionsUA'
 import { ProgressBar, Alert } from 'react-bootstrap'
 
 class UserAgent extends React.Component {
@@ -49,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadUA: () => dispatch(loadUA())
+        loadUA: () => dispatch(actionsUA.loadUA())
     }
 }
 
